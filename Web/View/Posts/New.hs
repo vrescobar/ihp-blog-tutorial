@@ -1,7 +1,7 @@
 module Web.View.Posts.New where
 import Web.View.Prelude
 
-data NewView = NewView { post :: Post }
+newtype NewView = NewView { post :: Post }
 
 instance View NewView where
     html NewView { .. } = [hsx|
@@ -18,6 +18,6 @@ instance View NewView where
 renderForm :: Post -> Html
 renderForm post = formFor post [hsx|
     {(textField #title)}
-    {(textField #body)}
+    {(textareaField #body)}
     {submitButton}
 |]

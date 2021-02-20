@@ -1,6 +1,8 @@
 module Web.View.Posts.Show where
 import Web.View.Prelude
 
+import qualified Text.MMark as MMark
+
 newtype ShowView = ShowView { post :: Post }
 
 instance View ShowView where
@@ -17,5 +19,10 @@ instance View ShowView where
         <a href={PostsAction}>go back</a>
     |]
         where
-            body = lines $ get #body post
-            line x = [hsx|{x}<br/>|]
+            line x = x
+            body = map renderMarkdown (lines $ get #body post)
+            renderMarkdown text =
+                case text |> MMark.parse "" of
+                    Left error -> "Something went wrong"
+                    Right markdown -> MMark.render markdown |> tshow |> preEscapedToHtml
+
