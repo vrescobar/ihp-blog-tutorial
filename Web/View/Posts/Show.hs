@@ -12,6 +12,7 @@ instance View ShowView where
             </ol>
         </nav>
         <h1>{get #title post}</h1>
+        <p>{get #createdAt post |> timeAgo }</p>
         <p>{forEach body line}</p>
         <a href={PostsAction}>go back</a>
     |]
