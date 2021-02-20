@@ -15,6 +15,10 @@ let
         ];
         otherDeps = p: with p; [
             # Native dependencies, e.g. imagemagick
+            git
+            direnv
+            gnumake
+            which
         ];
         projectPath = ./.;
     };
