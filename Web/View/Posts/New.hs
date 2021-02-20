@@ -1,7 +1,7 @@
 module Web.View.Posts.New where
 import Web.View.Prelude
 
-newtype NewView = NewView { post :: Post }
+data NewView = NewView { post :: Post }
 
 instance View NewView where
     html NewView { .. } = [hsx|

@@ -16,6 +16,8 @@ SET SESSION AUTHORIZATION DEFAULT;
 
 ALTER TABLE public.posts DISABLE TRIGGER ALL;
 
+INSERT INTO public.posts (id, title, body, created_at) VALUES ('a5ae5e6d-5df2-4fe0-8c32-c85876cddb52', 'Hallo', 'hallo Saina,
+__wie__ get es dir?', '2021-02-20 16:17:55.566269+01');
 
 
 ALTER TABLE public.posts ENABLE TRIGGER ALL;

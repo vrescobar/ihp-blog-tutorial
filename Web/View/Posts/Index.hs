@@ -1,7 +1,7 @@
 module Web.View.Posts.Index where
 import Web.View.Prelude
 
-newtype IndexView = IndexView { posts :: [Post] }
+data IndexView = IndexView { posts :: [Post] }
 
 instance View IndexView where
     html IndexView { .. } = [hsx|
