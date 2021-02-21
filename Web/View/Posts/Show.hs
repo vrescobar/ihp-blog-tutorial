@@ -18,10 +18,11 @@ instance View ShowView where
         <p>{forEach body line}</p>
         <a href={NewCommentAction (get #id post)}>Comment</a> - <a href={PostsAction}>Go Back</a>
         <br/>
-        <div>{forEach (get #comments post) renderComment}</div>
+        <div>{forEach (posts) renderComment}</div>
         <br/>
     |]
         where
+            posts = get #comments post -- |> orderByDesc #createdAt
             line x = x
             body = map renderMarkdown (lines $ get #body post)
             renderMarkdown text =

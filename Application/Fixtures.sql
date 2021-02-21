@@ -23,3 +23,11 @@ __wie__ get es dir?', '2021-02-20 16:17:55.566269+01');
 ALTER TABLE public.posts ENABLE TRIGGER ALL;
 
 
+ALTER TABLE public.comments DISABLE TRIGGER ALL;
+
+INSERT INTO public.comments (id, post_id, author, body, created_at) VALUES ('8ecd2f3c-49d5-4234-8199-a362e94fc08e', 'a5ae5e6d-5df2-4fe0-8c32-c85876cddb52', 'Victor', 'hello this is my comment numnber 1', '2021-02-21 08:45:47.468046+01');
+
+
+ALTER TABLE public.comments ENABLE TRIGGER ALL;
+
+
